@@ -41,7 +41,7 @@ srpm: build_prepare
 		--buildsrpm \
 		--spec=librdkafka.spec \
 		--sources=SOURCES
-	(tail -n 100 pkgs-$(VERSION)*/*log ; false)
+	ls -la pkgs-2.3.0-1-/etc/mock/amazonlinux-2-aarch64.cfg
 	@echo "======= Source RPM now available in $(RESULT_DIR) ======="
 
 rpm: srpm
@@ -54,7 +54,7 @@ rpm: srpm
 		--resultdir=$(RESULT_DIR) \
 		--no-clean --no-cleanup-after \
 		--rebuild $(RESULT_DIR)/$(PACKAGE_NAME)*.src.rpm
-	(tail -n 100 pkgs-$(VERSION)*/*log ; false)
+	ls -la pkgs-2.3.0-1-/etc/mock/amazonlinux-2-aarch64.cfg
 	@echo "======= Binary RPMs now available in $(RESULT_DIR) ======="
 
 copy-artifacts:

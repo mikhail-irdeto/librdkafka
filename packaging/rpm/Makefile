@@ -40,7 +40,7 @@ srpm: build_prepare
 		--install epel-release \
 		--buildsrpm \
 		--spec=librdkafka.spec \
-		--sources=SOURCES || \
+		--sources=SOURCES
 	(tail -n 100 pkgs-$(VERSION)*/*log ; false)
 	@echo "======= Source RPM now available in $(RESULT_DIR) ======="
 
@@ -53,7 +53,7 @@ rpm: srpm
 		--enable-network \
 		--resultdir=$(RESULT_DIR) \
 		--no-clean --no-cleanup-after \
-		--rebuild $(RESULT_DIR)/$(PACKAGE_NAME)*.src.rpm || \
+		--rebuild $(RESULT_DIR)/$(PACKAGE_NAME)*.src.rpm
 	(tail -n 100 pkgs-$(VERSION)*/*log ; false)
 	@echo "======= Binary RPMs now available in $(RESULT_DIR) ======="
 
